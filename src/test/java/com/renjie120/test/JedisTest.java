@@ -14,6 +14,9 @@ public class JedisTest {
 	@Test
 	public void firstTest() throws Exception {
 		RedisTemplate util = new RedisTemplate();
+		/**
+		 * 在一个事务中提交多个redis操作
+		 */
 		util.consoleWithTrancation(new RedisTransactionCallback() {
 			@Override
 			public void execute(Transaction t) {
@@ -23,6 +26,9 @@ public class JedisTest {
 			}
 		});
 
+		/**
+		 * 在一个管道中处理多个redis操作.
+		 */
 		util.consoleWithPipe(new RedisPipelineCallback() {
 			@Override
 			public void execute(Pipeline p) {
@@ -32,6 +38,9 @@ public class JedisTest {
 			}
 		});
 
+		/**
+		 * 进行一个redis操作.
+		 */
 		util.console(new RedisCallback() { 
 			@Override
 			public void execute(Jedis j) {
