@@ -3,7 +3,6 @@ package com.renjie120.test;
 import org.junit.Test;
 
 import brightmoon.util.FileUtil;
-import brightmoon.util.Util;
 
 public class FileUtilTest {
 
