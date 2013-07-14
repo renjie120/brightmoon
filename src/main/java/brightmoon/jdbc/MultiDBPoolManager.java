@@ -19,7 +19,7 @@ import org.apache.commons.logging.LogFactory;
 public class MultiDBPoolManager {
 	protected Log log = LogFactory.getLog(this.getClass().getName());
 	/**
-	 * 连接池管理对象
+	 * 连接池管理对象 
 	 */
 	private static MultiDBPoolManager dbManager = null;
 	/**
