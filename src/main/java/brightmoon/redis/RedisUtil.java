@@ -15,10 +15,10 @@ import redis.clients.jedis.Transaction;
 import brightmoon.util.Util;
 
 /**
- * redis处理工具类.
- * 包含读取配置文件，初始化jedispool，关闭连接等步骤.
+ * redis处理工具类. 包含读取配置文件，初始化jedispool，关闭连接等步骤.
+ * 
  * @author lsq
- *
+ * 
  */
 public class RedisUtil {
 	protected Log log = LogFactory.getLog(this.getClass().getName());
@@ -82,59 +82,6 @@ public class RedisUtil {
 
 	public Jedis getJedis() {
 		return jedisPool.getResource();
-	}
-
-	/**
-	 * 进行普通的处理.
-	 * @param j
-	 */
-	public void console(RedisCallback j) {
-		Jedis jedis = getJedis(); 
-		try {
-			j.execute(jedis); 
-		} catch (Exception e) {
-			log.error("console出现异常", e);
-			releaseBrokenJedis(jedis);
-		} finally {
-			releaseJedis(jedis);
-		}
-	}
-	
-	/**
-	 * 使用事务进行处理.
-	 * 
-	 * @param sth
-	 */
-	public void consoleWithTrancation(RedisTransactionCallback sth) {
-		Jedis jedis = getJedis();
-		Transaction t = jedis.multi();
-		try {
-			sth.execute(t);
-			t.exec();
-		} catch (Exception e) {
-			log.error("consoleWithTrancation出现异常", e);
-			releaseBrokenJedis(jedis);
-		} finally {
-			releaseJedis(jedis);
-		}
-	}
-
-	/**
-	 * 使用管道进行处理.
-	 * @param sth
-	 */
-	public void consoleWithPipe(RedisPipelineCallback sth) {
-		Jedis jedis = getJedis();
-		Pipeline p = jedis.pipelined();
-		try {
-			sth.execute(p);
-			p.sync();
-		} catch (Exception e) {
-			log.error("consoleWithPipe出现异常", e);
-			releaseBrokenJedis(jedis);
-		} finally {
-			releaseJedis(jedis);
-		}
 	}
 
 	/**
