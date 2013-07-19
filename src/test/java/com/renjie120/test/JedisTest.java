@@ -10,19 +10,19 @@ import redis.clients.jedis.Pipeline;
 import redis.clients.jedis.Transaction;
 import brightmoon.jdbc.DataHandler;
 import brightmoon.jdbc.MyDbUtil;
-import brightmoon.redis.RedisCallback;
-import brightmoon.redis.RedisPipelineCallback;
-import brightmoon.redis.RedisTemplate;
-import brightmoon.redis.RedisTransactionCallback;
+import brightmoon.redis.JedisCallback;
+import brightmoon.redis.JedisPipelineCallback;
+import brightmoon.redis.JedisTemplate;
+import brightmoon.redis.JedisTransactionCallback;
 
 public class JedisTest {
 	// @Test
 	public void firstTest() throws Exception {
-		RedisTemplate util = new RedisTemplate();
+		JedisTemplate util = new JedisTemplate();
 		/**
 		 * 在一个事务中提交多个redis操作
 		 */
-		util.consoleWithTrancation(new RedisTransactionCallback() {
+		util.consoleWithTrancation(new JedisTransactionCallback() {
 			@Override
 			public void execute(Transaction t) {
 				t.set("nname", "1111");
@@ -34,7 +34,7 @@ public class JedisTest {
 		/**
 		 * 在一个管道中处理多个redis操作.
 		 */
-		util.consoleWithPipe(new RedisPipelineCallback() {
+		util.consoleWithPipe(new JedisPipelineCallback() {
 			@Override
 			public void execute(Pipeline p) {
 				p.set("nn2ame", "1111");
@@ -46,7 +46,7 @@ public class JedisTest {
 		/**
 		 * 进行一个redis操作.
 		 */
-		util.console(new RedisCallback() {
+		util.console(new JedisCallback() {
 			@Override
 			public void execute(Jedis j) {
 				j.set("haha", "还是是多少多少看");
@@ -63,11 +63,11 @@ public class JedisTest {
 	 */
 	// @Test
 	public void copyFromDbToRedis() throws Exception {
-		RedisTemplate util = new RedisTemplate();
+		JedisTemplate util = new JedisTemplate();
 
 		final String sql = "select * from tally_type_t";
 
-		util.consoleWithPipe(new RedisPipelineCallback() {
+		util.consoleWithPipe(new JedisPipelineCallback() {
 			@Override
 			public void execute(Pipeline pp) {
 				final Pipeline p = pp;
@@ -105,9 +105,9 @@ public class JedisTest {
 
 	@Test
 	public void getTallayFromRedis() throws Exception {
-		RedisTemplate util = new RedisTemplate();
+		JedisTemplate util = new JedisTemplate();
 		final String tallyType = "5";
-		util.console(new RedisCallback() {
+		util.console(new JedisCallback() {
 			@Override
 			public void execute(Jedis j) {
 				System.out.println("moneyType = "
@@ -125,9 +125,9 @@ public class JedisTest {
 
 	@Test
 	public void deleteTallyFromRedis() throws Exception {
-		RedisTemplate util = new RedisTemplate();
+		JedisTemplate util = new JedisTemplate();
 		final String tallyType = "5"; 
-		util.consoleWithTrancation(new RedisTransactionCallback() {
+		util.consoleWithTrancation(new JedisTransactionCallback() {
 			
 			@Override
 			public void execute(Transaction t) {
