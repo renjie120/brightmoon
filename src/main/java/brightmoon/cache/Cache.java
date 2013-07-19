@@ -11,7 +11,17 @@ public class Cache {
 	private Object value;// 缓存数据
 	private long timeOut;// 更新时间
 	private boolean expired; // 是否终止
-
+	private static String trimClassName(String className){
+		int index = className.indexOf("$$");
+		if(index!=-1){
+			return className.substring(0,index);
+		}
+		return className;
+	}
+	public static void main(String[] args){
+		String tt = "com.deppon.bpms.module.config.server.dict.service.impl.DictionaryTypeServiceImpl$$EnhancerByCGLIB$$7c27cd3d";
+		System.out.println(trimClassName(tt));
+	}
 	public Cache() {
 		super();
 	}

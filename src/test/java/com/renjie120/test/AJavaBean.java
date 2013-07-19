@@ -28,4 +28,9 @@ public class AJavaBean {
 	public void setCount(String count) {
 		this.count = count;
 	}
+	
+	public static void main(String[] args){
+		String str = new String("1234");
+		
+	}
 }
