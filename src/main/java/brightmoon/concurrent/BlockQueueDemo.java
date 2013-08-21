@@ -54,7 +54,7 @@ class Producer implements Runnable {
 
 	public void run() {
 		String uuid = UUID.randomUUID().toString();
-		try {
+		try { 
 			queue.put(uuid);
 		} catch (InterruptedException e) {
 			e.printStackTrace();

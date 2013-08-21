@@ -138,6 +138,6 @@ public class CallableReturnFutureDemo {
 		CallableReturnFutureDemo demo = new CallableReturnFutureDemo();
 		demo.testFixedThreadPool();
 
-		demo.testFixedThreadPool();
+		demo.testCachedThreadPool();
 	}
 }
