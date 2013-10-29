@@ -74,14 +74,14 @@ public class JsoupUtil {
 		System.out.println(HttpClientUtil.getUrl(queryReport));
 	}
 }
-
-class Record {
-	public String year;
-	public String month;
-	public String money;
-	public String type;
-
-	public String toString() {
-		return year + "," + month + "," + money + "," + type;
-	}
-}
+//
+//class Record {
+//	public String year;
+//	public String month;
+//	public String money;
+//	public String type;
+//
+//	public String toString() {
+//		return year + "," + month + "," + money + "," + type;
+//	}
+//}

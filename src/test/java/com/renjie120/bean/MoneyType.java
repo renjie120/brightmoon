@@ -6,6 +6,7 @@
  * @author renjie120 419723443@qq.com
  */
 public class MoneyType {
+ 
 	/**
 	 * 小类别流水号
 	 */

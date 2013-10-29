@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class DataHandler {
+	
 	private List list = null;
 	public void addRecord(Object obj){ 
 		if(list==null){

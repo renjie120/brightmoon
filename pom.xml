@@ -4,6 +4,9 @@
 	<groupId>com.renjie120</groupId>
 	<artifactId>basetool</artifactId>
 	<version>1.0</version>
+	<properties>
+		<version.zookeeper>3.4.5</version.zookeeper>
+	</properties>
 	<dependencies>
 
 		<dependency>
@@ -39,6 +42,17 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>0.2.14</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>${version.zookeeper}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.jsoup</groupId>
@@ -145,11 +159,12 @@
 			<artifactId>jedis</artifactId>
 			<version>2.0.0</version>
 		</dependency>
+		<!--  
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-redis</artifactId>
 			<version>1.0.5.RELEASE</version>
-		</dependency>
+		</dependency>-->
 	</dependencies>
 	<repositories>
 		<repository>
