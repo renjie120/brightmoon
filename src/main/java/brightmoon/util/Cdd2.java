@@ -50,13 +50,17 @@ public class Cdd2 {
 	}
 
 	public static void main(String[] a){
-		Cdd2 c =new Cdd2();
-		List list = new ArrayList();
-		list.add(1);
-		list.add("c");
-		list.add((int)'a');
-		System.out.println(list);
-		System.out.println(c.strToBase64Str("1"));
+//		Cdd2 c =new Cdd2();
+//		List list = new ArrayList();
+//		list.add(1);
+//		list.add("c");
+//		list.add((int)'a');
+//		System.out.println(list);
+//		System.out.println(c.strToBase64Str("1"));
+		StringBuffer s = new StringBuffer("23");
+		StringBuffer s2 = s;
+		s2 = s2.append("sss"); 
+		System.out.println(s==s2);
 	}
 	private static char[] toAsBase64String(char[] input) {
 		char[] Base64Code = Cdd2.strToChars(Cdd2.base64Str);
