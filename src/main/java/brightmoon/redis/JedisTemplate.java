@@ -2,6 +2,7 @@ package brightmoon.redis;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.data.redis.core.RedisCallback;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
@@ -9,16 +10,23 @@ import redis.clients.jedis.Transaction;
 
 /**
  * 实用的redis处理模板类.
+ * 
  * @author lsq
- *
+ * 
  */
-public class JedisTemplate {
+public class JedisTemplate<K, V> {
 	private JedisUtil util;
-	public JedisTemplate(){
+
+	public JedisTemplate() {
 		util = JedisUtil.getInstance();
 	}
+
 	protected Log log = LogFactory.getLog(this.getClass().getName());
-	
+
+	public <T> T execute(RedisCallback<T> action) {
+		return execute(action);
+	}
+
 	/**
 	 * 进行普通的处理.
 	 * 

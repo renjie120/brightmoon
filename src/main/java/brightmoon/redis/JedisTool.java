@@ -11,19 +11,18 @@ import org.springframework.data.redis.core.RedisTemplate;
  * @author lisq
  * 
  */
-public class JredisTool implements IRedisTool {
-	private RedisTemplate template;
-	public RedisTemplate getTemplate() {
+public class JedisTool implements IRedisTool {
+	private JedisTemplate template;
+	public JedisTemplate getTemplate() {
 		return template;
 	}
 
-	public void setTemplate(RedisTemplate template) {
+	public void setTemplate(JedisTemplate template) {
 		this.template = template;
 	}
 
 	@Override
-	public List<byte[]> getList(byte[] k) {
-		// TODO Auto-generated method stub
+	public List<byte[]> getList(byte[] k) { 
 		return null;
 	}
 
