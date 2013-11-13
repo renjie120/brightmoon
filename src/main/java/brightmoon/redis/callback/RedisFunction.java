@@ -13,7 +13,7 @@ public class RedisFunction<T> {
 		Jedis jedis = util.getJedis();
 		T result = null;
 		try {
-			result = jedis.getDB();  
+			result = callback.execute(jedis);  
 		} catch (Exception e) { 
 			util.releaseBrokenJedis(jedis);
 		} finally {
