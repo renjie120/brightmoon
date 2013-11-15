@@ -16,7 +16,11 @@
 		<version.zookeeper>3.4.5</version.zookeeper>
 	</properties>
 	<dependencies>
-
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>5.2.0</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
