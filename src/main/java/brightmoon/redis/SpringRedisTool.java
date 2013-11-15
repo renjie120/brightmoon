@@ -18,7 +18,7 @@ import org.springframework.data.redis.core.SessionCallback;
  
 
 /**
- * 基础的redis操作封装. 只提供关于只读方法的封装，对于写操作可能涉及到事务等操作,示例代码：DictionaryRedis.java
+ * 基础的redis操作封装. 只提供关于只读方法的封装，对于写操作可能涉及到事务等操作.
  * 
  * @author lisq
  * 
